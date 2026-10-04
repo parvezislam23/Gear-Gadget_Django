@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="h-screen grid grid-cols-3">
+    <div class="lg:col-span-2 col-span-3 bg-black space-y-8 px-12">
+        <div class="mt-8 p-4 relative flex flex-col sm:flex-row sm:items-center bg-black shadow rounded-md">
+            <div class="flex flex-row items-center border-b sm:border-b-0 w-full sm:w-auto pb-4 sm:pb-0">
+                <div class="text-yellow-500">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 sm:w-5 h-6 sm:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <div class="text-sm font-medium ml-3">Checkout</div>
+            </div>
+            <div class="text-sm tracking-wide text-white mt-4 sm:mt-0 sm:ml-4">Complete your shipping and payment details below.</div>
+            <div class="absolute sm:relative sm:top-auto sm:right-auto ml-auto right-4 top-4 text-white hover:text-yellow-600 cursor-pointer">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </div>
+        </div>
+        <form method='post'>
+            {% csrf_token %} 
+        <div class="rounded-md">
+            <section>
+                <h2 class="uppercase tracking-wide text-lg font-semibold text-white my-2">Payment Information</h2>
+                <div class="w-full mx-auto rounded-lg bg-black border border-gray-200 text-white font-light mb-6">
+                    <div class="w-full p-3 border-b border-gray-200">
+                        <div class="mb-5">
+                            <label for="type1" class="flex items-center cursor-pointer">
+                                <input type="radio" class="form-radio h-5 w-5 text-indigo-500" name="type" id="type1" checked>
+                                <img src="https://leadershipmemphis.org/wp-content/uploads/2020/08/780370.png" class="h-6 ml-3">
+                            </label>
+                        </div>
+                        <div>
+                            <div class="mb-3 -mx-2 flex items-center justify-between">
+                                <div class="px-2 w-full">
+                                    <label class="text-white font-semibold text-sm mb-2 ml-1">First Name</label>
+                                    <div>
+                                        <input name="first_name" class="form-control text-black w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Enter Your Frist Name" type="text"required/>
+                                    </div>
+                                </div>
+                                <div class="px-2 w-full">
+                                    <label class="text-white font-semibold text-sm mb-2 ml-1">Last Name</label>
+                                    <div>
+                                        <input name="last_name" class="form-control text-black w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Enter Your Last Name" type="text"required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 -mx-2 flex items-center justify-between">
+                                <div class="px-2 w-full">
+                                    <label class="text-white font-semibold text-sm mb-2 ml-1">Email</label>
+                                    <div>
+                                        <input name="email" class="form-control text-black w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Email" type="text"required/>
+                                    </div>
+                                </div>
+                                <div class="px-2 w-full">
+                                    <label class="form-control text-white font-semibold text-sm mb-2 ml-1">Phone Number</label>
+                                    <div>
+                                        <input name="phone" class="w-full text-black px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Phone No" type="text"required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 -mx-2 flex items-center justify-between">
+                                <div class="px-2 w-full">
+                                    <label class="text-white font-semibold text-sm mb-2 ml-1">House No</label>
+                                    <div>
+                                        <input name="address1" class="form-control text-black w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="House No" type="text"required/>
+                                    </div>
+                                </div>
+                                <div class="px-2 w-full">
+                                    <label class="text-white font-semibold text-sm mb-2 ml-1">Area</label>
+                                    <div>
+                                        <input name="address2" class="form-control text-black w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Ares" type="text"required/>
+                                    </div>
+                                </div>
+                                <div class="px-2 w-full">
+                                    <label class="text-white font-semibold text-sm mb-2 ml-1">City</label>
+                                    <div>
+                                        <input name="city" class="form-control text-black w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="000" type="text"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 -mx-2 flex items-center justify-between">
+                                <div class="px-2 w-full">
+                                    <label class=" font-semibold text-sm mb-2 ml-1">State</label>
+                                    <div>
+                                        <input name="state" class="form-control text-black w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="State" type="text"required/>
+                                    </div>
+                                </div>
+                                <div class="px-2 w-full">
+                                    <label class="text-white font-semibold text-sm mb-2 ml-1">Country</label>
+                                    <div>
+                                        <input name="country" class="form-control text-black w-full px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Country" type="text"required/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3 -mx-2 ">
+                                <div class="px-2 w-full">
+                                    <label class=" font-semibold text-sm mb-2 ml-1">Order Note</label>
+                                    <div>
+                                        <textarea name="order_note"class="placeholder-black text-black form-control w-96 h-28 px-3 py-2 mb-1 border border-gray-200 rounded-md focus:outline-none focus:border-indigo-500 transition-colors" placeholder="Write Something" type="text" required></textarea>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+            </section>
+        </div>
+    </div>
+    <div class="col-span-1 bg-black lg:block hidden">
+        <h1 class="py-6 border-b-2 text-xl text-white px-8">Order Summary</h1>
+        <ul class="py-6 border-b space-y-6 px-8">
+            {% for item in cart_items %}
+            <li class="grid grid-cols-6 gap-2 border-b-1">
+                <div class="col-span-1 self-center">
+                    <img src="{{item.product.images.url}}" alt="Product" class="rounded w-full">
+                </div>
+                <div class="flex flex-col col-span-3 pt-2">
+                    <span class="text-white text-md font-semi-bold">{{item.product.product_name}}</span>
+                </div>
+                <div class="col-span-2 pt-3">
+                    <div class="flex items-center space-x-2 text-sm justify-between">
+                        <span class="text-white">{{item.quantity}} x {{item.product.price}}</span>
+                        <span class="text-pink-400 font-semibold inline-block">Total $ {{item.sub_total}}</span>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="px-8 border-b">
+            <div class="flex justify-between py-4 text-white">
+                <span>Subtotal</span>
+                <span class="font-semibold text-pink-500">{{total}}</span>
+            </div>
+            <div class="flex justify-between py-4 text-white">
+                <span>Shipping</span>
+                <span class="font-semibold text-pink-500">{{tax}}</span>
+            </div>
+        </div>
+        <div class="font-semibold text-xl px-8 flex justify-between py-8 text-white">
+            <span>Total</span>
+            <span>{{grand_total}}</span>
+        </div>
+       <a href="{% url 'place_order' %}"><button class="block w-full max-w-xs mx-auto bg-pink-600 hover:bg-yellow-700 focus:bg-indigo-700 text-white rounded-lg px-3 py-2 font-semibold"><i class="mdi mdi-lock-outline mr-1"></i>Make Payment</button></a>
+    </div>
+</form>
+</div>
+{% endblock  %}
